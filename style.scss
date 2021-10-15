@@ -1,0 +1,312 @@
+@import url('https://cdn.fontcdn.ir/Font/Persian/Shabnam/Shabnam.css');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Shabnam', monospace;
+}
+
+body {
+    position: relative;
+    background-color: #F9F3DF;
+}
+
+header {
+    background-color: #150050;
+    border-bottom: 2px solid #F9F3DF;
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 1rem;
+
+        color: #F9F3DF;
+
+        &-logo {
+            font-size: 1.7rem;
+            font-weight: bold;
+        }
+
+        &-cart {
+            position: relative;
+
+            &__box {
+                background-color: #F9F3DF;
+                color: #150050;
+                padding: .5rem 1.6rem;
+                border-radius: .8rem;
+                cursor: pointer;
+
+                &-amount {
+                    position: absolute;
+                    top: 0;
+                    right: 15%;
+                }
+            }
+        }
+    }
+}
+
+// end headear
+.intro {
+    background-color: #150050;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-content {
+        padding: 2rem;
+        background-color: #F9F3DF;
+        color: #150050;
+        border-radius: .5rem;
+        width: 600px;
+        margin: 0 auto;
+        text-align: right;
+        transform: rotate(-5deg);
+        cursor: pointer;
+        transition: all .4s ease-in-out;
+
+        &:hover {
+            transform: rotate(0deg);
+
+        }
+
+        &__title {
+            font-size: 1.5rem;
+            font-weight: bold;
+
+        }
+
+        &__subtitle {
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+    }
+
+    @media screen and(max-width : 768px) {
+        &-content {
+            width: 100%;
+            transform: rotate(0);
+            cursor: none;
+        }
+    }
+}
+
+// end intro
+
+.product {
+    padding: 6rem 0;
+
+    &-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+
+        &__content {
+            width: 30%;
+            margin: 1.5rem 0;
+            border-radius: .5rem;
+            height: 300px;
+            box-shadow: -1px 10px 29px -12px rgba(21, 0, 80, 1);
+
+            &-img {
+                width: 100%;
+                height: 180px;
+                background-color: #000;
+                border-top-left-radius: .5rem;
+                border-top-right-radius: .5rem;
+
+            }
+
+            &-name {
+                text-align: right;
+                margin: 1rem .5rem;
+                background-color: #150050;
+                color: #F9F3DF;
+                padding: .5rem;
+                border-radius: .5rem;
+            }
+
+            &-footer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 0 1rem;
+
+                &__price {
+                    font-weight: bold;
+                }
+
+                &__button {
+                    background-color: #150050;
+                    color: #F9F3DF;
+                    border-radius: 50%;
+                    width: 25px;
+                    height: 25px;
+                    text-align: center;
+                    line-height: 1.8;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    @media screen and(max-width : 768px) {
+        &-box {
+            flex-direction: column;
+
+            &__content {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// end product
+
+
+
+
+// cart box
+
+.modal {
+    display: none;
+
+
+
+    &.active-cart {
+        display: block;
+
+    }
+
+    .back {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0.75);
+
+
+    }
+
+    .cart {
+        position: fixed;
+        text-align: right;
+        top: 0;
+        left: 5%;
+        width: 90%;
+        background-color: #F9F3DF;
+        padding: 1rem;
+        border-radius: 14px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        z-index: 3;
+        animation: slide-down 300ms ease-out forwards;
+
+
+        &-list {
+
+            list-style: none;
+            color: #082032;
+
+            &__content {
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 2px solid #082032;
+                padding: 1rem 0;
+                margin: 1rem 0;
+
+                h3 {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+
+                &-box {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    &__button {
+                        margin: 0 1rem;
+                        width: 3rem;
+                        border-radius: .5rem;
+                        background-color: #082032;
+                        color: #e0e0e0;
+                        border: none;
+                        text-align: center;
+                        font-size: 1.3rem;
+                    }
+                }
+
+
+            }
+        }
+
+        &-total {
+            padding: .3rem;
+
+            &__amount {
+                font-size: 1.5rem;
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: bold;
+            }
+
+            &__price {
+                font-size: 1.2rem;
+            }
+        }
+
+        &-button {
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &__value {
+                font-size: 1.5rem;
+                color: #082032;
+                font-weight: bold;
+            }
+
+            button {
+                margin: 0 1rem;
+                border-radius: .5rem;
+                background-color: #082032;
+                color: #e0e0e0;
+                border: none;
+                text-align: center;
+                font-size: 1.1rem;
+                padding: .5rem 1rem;
+            }
+        }
+    }
+
+
+    @media (min-width: 768px) {
+        .cart {
+            width: 40rem;
+            left: calc(50% - 20rem);
+        }
+    }
+
+    @keyframes slide-down {
+        from {
+            opacity: 0;
+            transform: translateY(-3rem);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
